@@ -6,7 +6,7 @@ def mail_user(message, user_email):
 	mail_content = message
 	#The mail addresses and password
 	sender_address = 'mlai.discuss@gmail.com'
-	sender_pass = 'test@1234'
+	sender_pass = 'your password'
 	receiver_address = user_email
 	#Setup the MIME
 	message = MIMEMultipart()
