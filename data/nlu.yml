@@ -1,0 +1,350 @@
+version: "2.0"
+nlu:
+- intent: affirm
+  examples: |
+    - yes
+    - yep
+    - yeah
+    - indeed
+    - that's right
+    - ok
+    - great
+    - right, thank you
+    - correct
+    - great choice
+    - sounds really good
+    - sure
+    - yes send it
+    - yes. Please send it to [ahbcdj@dkj.com](email)
+    - send it on [xyz@gmail.com](email)
+    - yes [jddk.2jmd@kdl.co.in](email)
+    - [abc@xyz.co.in](email)
+    - yes mail me at [abc@xyz.com](email)
+    - yes send it to [abc@xyz.com](email)
+    - share it on [jddk.2jmd@kdl.co.in](email)
+    - yes. send it to [xyz@sth.edu](email)
+    - [jjdk.2jmd@kdl.co.in](email)
+    - yes please
+    - [adriangonsalves2197@gmail.com](email)
+- intent: deny
+  examples: |
+    - no
+    - n
+    - Dont
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+    - dont send
+    - i dont want it
+    - no thanks
+    - nope
+    - Not required
+    - i dont need it
+- intent: goodbye
+  examples: |
+    - bye
+    - goodbye
+    - good bye
+    - stop
+    - end
+    - farewell
+    - Bye bye
+    - have a good one
+- intent: thank
+  examples: |
+    - thanks!
+    - thank you
+    - thanks a lot
+    - great thanks
+    - appreciate it
+    - cool thanks
+    - thanks bye
+- intent: greet
+  examples: |
+    - hey
+    - howdy
+    - hey there
+    - hello
+    - hi
+    - good morning
+    - good evening
+    - dear sir
+    - hola
+    - Hi
+    - Hey
+    - Hello!
+- intent: restaurant_search
+  examples: |
+    - i'm looking for a place to eat
+    - I want to grab lunch
+    - I am searching for a dinner spot
+    - I am looking for some restaurants in [Delhi](location).
+    - I am looking for some restaurants in [Bangalore](location)
+    - show me [chinese](cuisine) restaurants
+    - show me [chines]{"entity": "cuisine", "value": "chinese"} restaurants in the [New Delhi]{"entity": "location", "value": "Delhi"}
+    - show me a [mexican](cuisine) place in the [centre](location)
+    - i am looking for an [indian](cuisine) spot called olaolaolaolaolaola
+    - search for restaurants
+    - anywhere in the [west](location)
+    - I am looking for [asian fusion](cuisine) food
+    - I am looking a restaurant in [294328](location)
+    - in [Gurgaon](location)
+    - [South Indian]{"entity": "cuisine", "value": "south indian"}
+    - [south indian](cuisine)
+    - [North Indian]{"entity": "cuisine", "value": "north indian"}
+    - [north indian](cuisine)
+    - [american](cuisine)
+    - [American]{"entity": "cuisine", "value": "american"}
+    - [mexican](cuisine)
+    - [Mexican]{"entity": "cuisine", "value": "mexican"}
+    - [Italian]{"entity": "cuisine", "value": "italian"}
+    - [italian](cuisine)
+    - [Chinese]{"entity": "cuisine", "value": "chinese"}
+    - [chinese](cuisine)
+    - Oh, sorry, in [Italy](location)
+    - in [delhi](location)
+    - I am looking for some restaurants in [Mumbai](location)
+    - I am looking for [mexican indian fusion](cuisine)
+    - [central](location) [indian](cuisine) restaurant
+    - please help me to find restaurants in [pune](location)
+    - Please find me a restaurant in [bangalore](location)
+    - [mumbai](location)
+    - show me restaurants
+    - please find me [chinese](cuisine) restaurant in [delhi](location)
+    - can you find me a [chinese](cuisine) restaurant
+    - [delhi](location)
+    - please find me a restaurant in [ahmedabad](location)
+    - please show me a few [italian](cuisine) restaurants in [bangalore](location)
+    - find me a restaurant
+    - [Mumbai](location)
+    - [Delhi](location)
+    - [Banglore](location)
+    - [Chinese]{"entity": "cuisine", "value": "chinese"}(cuisine)
+    - [300-700](price)
+    - [less than 300](price)
+    - [greater than 700](price)
+    - show me good places for [chinese](cuisine)
+    - restaurant with budget of [less than 300](price) for 2 people
+    - restaurant with budget of [300 to 700]{"entity": "price", "value": "300-700"} for 2 people.
+    - restaurant with budget of [greater than 700](price) for 2 people
+    - show me some good places to eat
+    - [bengaluru]{"entity": "location", "value": "bangalore"}
+    - find me a place to eat in [vasai](location)
+    - in [madras]{"entity": "location", "value": "chennai"}
+    - Can you suggest some good restaurants in [Rishikesh](location)
+    - Okay. Show me some in [Allahabad](location)
+    - I’m hungry. Looking out for some good [chinese](cuisine) restaurants in [chandigarh](location)
+    - Can you suggest soe good restaurants in [Rishikesh](location)
+    - I'll prefer [chines]{"entity": "cuisine", "value": "chinese"}
+    - [>700]{"entity": "price", "value": "greater than 700"}
+    - Can you suggest some good restaurants in [kolkata](location)
+    - [<300]{"entity": "price", "value": "less than 300"}
+    - Im hungry. Looking for some good restaurants
+    - in [Mmubaim](location)
+    - in [Mumbai](location)
+    - find me some good restaurants in [ajmer](location)
+    - [Ahmedabad](location)
+    - [Chennai](location)
+    - [Hydrabad](location)
+    - [Kolkata](location)
+    - [Pune](location)
+- synonym: chinese
+  examples: |
+    - chines
+    - Chinese
+    - Chines
+- synonym: Delhi
+  examples: |
+    - New Delhi
+    - new delhi
+- synonym: south indian
+  examples: |
+    - South Indian
+- synonym: north indian
+  examples: |
+    - North Indian
+- synonym: american
+  examples: |
+    - American
+- synonym: mexican
+  examples: |
+    - Mexican
+- synonym: italian
+  examples: |
+    - Italian
+- synonym: 300-700
+  examples: |
+    - 300 to 700
+    - bw 300 and 700
+    - in 300 to 700
+    - bw 300 & 700
+    - between 300 and 700
+- synonym: bangalore
+  examples: |
+    - bengaluru
+- synonym: chennai
+  examples: |
+    - madras
+- synonym: greater than 700
+  examples: |
+    - >700
+    - more that 700
+    - 700 plus
+    - 700+
+- synonym: less than 300
+  examples: |
+    - <300
+    - 300
+    - lesser than 300
+    - 300 or less
+    - lower than 300
+- synonym: mid
+  examples: |
+    - moderate
+- synonym: '4'
+  examples: |
+    - four
+- synonym: restaurant
+  examples: |
+    - hotel
+    - dinner
+    - outlet
+- synonym: '2'
+  examples: |
+    - two
+- synonym: mumbai
+  examples: |
+    - bombay
+    - Bombay
+- synonym: kolkata
+  examples: |
+    - calcutta
+    - calcuta
+- synonym: vegetarian
+  examples: |
+    - veggie
+    - veg
+- regex: email
+  examples: |
+    - [\w.]+@[a-zA-Z.]+[a-zA-Z]{2,4}$
+- regex: greet
+  examples: |
+    - hey[^\s]*
+- regex: pincode
+  examples: |
+    - [0-9]{6}
+- lookup: location
+  examples: |
+    -Ahmedabad
+    -Bangalore
+    -Chennai
+    -Delhi
+    -Hyderabad
+    -Kolkata
+    -Mumbai
+    -Pune
+    -Agra
+    -Ajmer
+    -Aligarh
+    -Amravati
+    -Amritsar
+    -Asansol
+    -Aurangabad
+    -Bareilly
+    -Belgaum
+    -Bhavnagar
+    -Bhiwandi
+    -Bhopal
+    -Bhubaneswar
+    -Bikaner
+    -Bilaspur
+    -Bokaro Steel City
+    -Chandigarh
+    -Coimbatore
+    -Cuttack
+    -Dehradun
+    -Dhanbad
+    -Bhilai
+    -Durgapur
+    -Dindigul
+    -Erode
+    -Faridabad
+    -Firozabad
+    -Ghaziabad
+    -Gorakhpur
+    -Gulbarga
+    -Guntur
+    -Gwalior
+    -Gurgaon
+    -Guwahati
+    -Hamirpur
+    -Hubli–Dharwad
+    -Indore
+    -Jabalpur
+    -Jaipur
+    -Jalandhar
+    -Jammu
+    -Jamnagar
+    -Jamshedpur
+    -Jhansi
+    -Jodhpur
+    -Kakinada
+    -Kannur
+    -Kanpur
+    -Karnal
+    -Kochi
+    -Kolhapur
+    -Kollam
+    -Kozhikode
+    -Kurnool
+    -Ludhiana
+    -Lucknow
+    -Madurai
+    -Malappuram
+    -Mathura
+    -Mangalore
+    -Meerut
+    -Moradabad
+    -Mysore
+    -Nagpur
+    -Nanded
+    -Nashik
+    -Nellore
+    -Noida
+    -Patna
+    -Pondicherry
+    -Purulia
+    -Prayagraj
+    -Raipur
+    -Rajkot
+    -Rajahmundry
+    -Ranchi
+    -Rourkela
+    -Salem
+    -Sangli
+    -Shimla
+    -Siliguri
+    -Solapur
+    -Srinagar
+    -Surat
+    -Thanjavur
+    -Thiruvananthapuram
+    -Thrissur
+    -Tiruchirappalli
+    -Tirunelveli
+    -Ujjain
+    -Bijapur
+    -Vadodara
+    -Varanasi
+    -Vasai-Virar City
+    -Vijayawada
+    -Visakhapatnam
+    -Vellore
+    -Warangal
+    -Bengaluru
+    -Bombay
+    -Poona
+    -Madras
+    -Calcutta
+    -New Delhi

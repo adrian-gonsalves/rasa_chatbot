@@ -1,0 +1,4 @@
+forms:
+  email_form:
+    email:
+    - type: from_text

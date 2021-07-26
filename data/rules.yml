@@ -1,0 +1,17 @@
+version: "2.0"
+
+rules:
+- rule: Say goodbye anytime the user says goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+- rule: Ask for location again
+  condition:
+  - slot_was_set:
+    - check_loc: false
+  steps:
+  - action: utter_not_working_in_loaction
+- rule: Say welcome anytime the user says thanks
+  steps:
+  - intent: thank
+  - action: utter_welcome

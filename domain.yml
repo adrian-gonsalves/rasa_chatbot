@@ -1,0 +1,116 @@
+session_config:
+  session_expiration_time: 0.0
+  carry_over_slots_to_new_session: true
+intents:
+- affirm
+- restaurant_search
+- greet
+- deny
+- goodbye
+- thank
+entities:
+- cuisine
+- email
+- location
+- price
+slots:
+  check_loc:
+    type: bool
+    influence_conversation: true
+  cuisine:
+    type: categorical
+    influence_conversation: true
+    values:
+    - chinese
+    - italian
+    - north indian
+    - south indian
+    - american
+    - mexican
+    - __other__
+  email:
+    type: text
+    influence_conversation: false
+  location:
+    type: text
+    influence_conversation: true
+  price:
+    type: categorical
+    influence_conversation: true
+    values:
+    - less than 300
+    - 300-700
+    - greater than 700
+    - __other__
+  requested_slot:
+    type: text
+    influence_conversation: false
+responses:
+  utter_ask_cuisine:
+  - buttons:
+    - payload: chinese
+      title: Chinese
+    - payload: italian
+      title: Italian
+    - payload: mexican
+      title: Mexican
+    - payload: american
+      title: American
+    - payload: south indian
+      title: South Indian
+    - payload: north indian
+      title: North Indian
+    text: what kind of cuisine would you prefer?
+  utter_ask_howcanhelp:
+  - text: How can I help you?
+  utter_ask_location:
+  - text: In what location?
+  utter_default:
+  - text: I cannot understand.
+  utter_goodbye:
+  - text: Goodbye
+  - text: Bye
+  utter_sent:
+  - text: Sent the deatils to {email}
+  utter_greet:
+  - text: Hey there! How may I help you.
+  - text: Hi, how can I help you!
+  - text: Hey, How is it going. How may I help you today!
+  utter_ask_budget:
+  - buttons:
+    - payload: less than 300
+      title: Lesser than Rs. 300
+    - payload: 300-700
+      title: Rs. 300 to 700
+    - payload: greater than 700
+      title: More than 700
+    text: What price range are you looking at?
+  utter_ask_email:
+  - text: Should I send you details of all the restaurants on email?
+  utter_ask_email_after_confirm:
+  - text: To what email id should I send it to?
+  utter_not_working_in_location:
+  - text: Sorry, we do not operate in that area. Please specify another location.
+  utter_welcome:
+  - text: You're welcome!
+actions:
+- action_check_city
+- action_search_restaurants
+- action_send_mail
+- utter_ask_budget
+- utter_ask_cuisine
+- utter_ask_email
+- utter_ask_email_after_confirm
+- utter_ask_howcanhelp
+- utter_ask_location
+- utter_default
+- utter_goodbye
+- utter_greet
+- utter_not_working_in_location
+- utter_sent
+- utter_welcome
+forms:
+  email_form:
+    email:
+    - type: from_text
+version: '2.0'

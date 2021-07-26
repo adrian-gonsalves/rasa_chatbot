@@ -1,0 +1,409 @@
+version: "2.0"
+
+stories:
+- story: Complete path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: restaurant_search
+  - action: utter_ask_location
+  - intent: restaurant_search
+    entities:
+    - location: delhi
+  - slot_was_set:
+    - location: delhi 
+  - action: action_check_city
+  - slot_was_set:
+    - check_loc: true
+  - action: utter_ask_cuisine
+  - intent: restaurant_search
+    entities:
+    - cuisine: chinese
+  - slot_was_set:
+    - cuisine: chinese
+  - action: utter_ask_budget
+  - intent: restaurant_search
+    entities:
+    - price: 300-700
+  - slot_was_set:
+    - price: 300-700
+  - action: action_search_restaurants
+  - action: utter_ask_email
+  - intent: affirm
+    entities:
+    - email: abc@xyz.com
+  - slot_was_set:
+    - email: abc@xyz.com
+  - action: action_send_mail
+  - intent: goodbye
+  - action: utter_goodbye
+  
+- story: Complete path with location specified
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: restaurant_search
+    entities:
+    - location: delhi
+  - slot_was_set:
+    - location: delhi 
+  - action: action_check_city
+  - slot_was_set:
+    - check_loc: true
+  - action: utter_ask_cuisine
+  - intent: restaurant_search
+    entities:
+    - cuisine: chinese
+  - slot_was_set:
+    - cuisine: chinese
+  - action: utter_ask_budget
+  - intent: restaurant_search
+    entities:
+    - price: 300-700
+  - slot_was_set:
+    - price: 300-700
+  - action: action_search_restaurants
+  - action: utter_ask_email
+  - intent: affirm
+    entities:
+    - email: abc@xyz.com
+  - slot_was_set:
+    - email: abc@xyz.com
+  - action: action_send_mail
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: Complete path with incorrect location specified first
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: restaurant_search
+  - action: utter_ask_location
+  - intent: restaurant_search
+    entities:
+    - location: xyz
+  - slot_was_set:
+    - location: xzy 
+  - action: action_check_city
+  - slot_was_set:
+    - check_loc: false
+  - action: utter_not_working_in_location
+  - intent: restaurant_search
+    entities:
+    - location: delhi
+  - slot_was_set:
+    - location: delhi 
+  - action: action_check_city
+  - slot_was_set:
+    - check_loc: true
+  - action: utter_ask_cuisine
+  - intent: restaurant_search
+    entities:
+    - cuisine: chinese
+  - slot_was_set:
+    - cuisine: chinese
+  - action: utter_ask_budget
+  - intent: restaurant_search
+    entities:
+    - price: 300-700
+  - slot_was_set:
+    - price: 300-700
+  - action: action_search_restaurants
+  - action: utter_ask_email
+  - intent: affirm
+    entities:
+    - email: abc@xyz.com
+  - slot_was_set:
+    - email: abc@xyz.com
+  - action: action_send_mail
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: Complete path with no email
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: restaurant_search
+  - action: utter_ask_location
+  - intent: restaurant_search
+    entities:
+    - location: delhi
+  - slot_was_set:
+    - location: delhi 
+  - action: action_check_city
+  - slot_was_set:
+    - check_loc: true
+  - action: utter_ask_cuisine
+  - intent: restaurant_search
+    entities:
+    - cuisine: chinese
+  - slot_was_set:
+    - cuisine: chinese
+  - action: utter_ask_budget
+  - intent: restaurant_search
+    entities:
+    - price: 300-700
+  - slot_was_set:
+    - price: 300-700
+  - action: action_search_restaurants
+  - action: utter_ask_email
+  - intent: deny
+  - action: utter_goodbye
+
+- story: interactive_story_1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: restaurant_search
+  - action: utter_ask_location
+  - intent: restaurant_search
+    entities:
+    - location: bangalore
+  - slot_was_set:
+    - location: bangalore
+  - action: action_check_city
+  - slot_was_set:
+    - check_loc: true
+  - action: utter_ask_cuisine
+  - intent: restaurant_search
+    entities:
+    - cuisine: chinese
+  - slot_was_set:
+    - cuisine: chinese
+  - action: utter_ask_budget
+  - intent: restaurant_search
+    entities:
+    - price: 300-700
+  - slot_was_set:
+    - price: 300-700
+  - action: action_search_restaurants
+  - action: utter_ask_email
+  - intent: deny
+  - action: utter_goodbye
+
+
+- story: interactive_story_1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: restaurant_search
+    entities:
+    - location: Rishikesh
+  - slot_was_set:
+    - location: Rishikesh
+  - action: action_check_city
+  - slot_was_set:
+    - check_loc: false
+  - action: utter_not_working_in_location
+  - intent: restaurant_search
+    entities:
+    - location: Allahabad
+  - slot_was_set:
+    - location: Allahabad
+  - action: action_check_city
+  - slot_was_set:
+    - check_loc: true
+  - action: utter_ask_cuisine
+  - intent: restaurant_search
+    entities:
+    - cuisine: chinese
+  - slot_was_set:
+    - cuisine: chinese
+  - action: utter_ask_budget
+  - intent: restaurant_search
+    entities:
+    - price: greater than 700
+  - slot_was_set:
+    - price: greater than 700
+  - action: action_search_restaurants
+  - action: utter_ask_email
+  - intent: affirm
+    entities:
+    - email: xyz@sth.edu
+  - slot_was_set:
+    - email: xyz@sth.edu
+  - action: action_send_mail
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: interactive_story_2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: restaurant_search
+    entities:
+    - location: kolkata
+  - slot_was_set:
+    - location: kolkata
+  - action: action_check_city
+  - slot_was_set:
+    - check_loc: true
+  - action: utter_ask_cuisine
+  - intent: restaurant_search
+    entities:
+    - cuisine: american
+  - slot_was_set:
+    - cuisine: american
+  - action: utter_ask_budget
+  - intent: restaurant_search
+    entities:
+    - price: less than 300
+  - slot_was_set:
+    - price: less than 300
+  - action: action_search_restaurants
+  - action: utter_ask_email
+  - intent: affirm
+    entities:
+    - email: jjdk.2jmd@kdl.co.in
+  - slot_was_set:
+    - email: jjdk.2jmd@kdl.co.in
+  - action: action_send_mail
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: Complete path with location and cuisine specified
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: restaurant_search
+    entities:
+    - cuisine: chinese
+    - location: delhi
+  - slot_was_set:
+    - cuisine: chinese
+  - slot_was_set:
+    - location: delhi 
+  - action: action_check_city
+  - slot_was_set:
+    - check_loc: true
+  - action: utter_ask_budget
+  - intent: restaurant_search
+    entities:
+    - price: 300-700
+  - slot_was_set:
+    - price: 300-700
+  - action: action_search_restaurants
+  - action: utter_ask_email
+  - intent: affirm
+    entities:
+    - email: abc@xyz.com
+  - slot_was_set:
+    - email: abc@xyz.com
+  - action: action_send_mail
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: Complete path with incorrect location and cuisine specified
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: restaurant_search
+    entities:
+    - cuisine: chinese
+    - location: chembur
+  - slot_was_set:
+    - cuisine: chinese
+  - slot_was_set:
+    - location: chembur 
+  - action: action_check_city
+  - slot_was_set:
+    - check_loc: false
+  - action: utter_not_working_in_location
+  - intent: restaurant_search
+    entities:
+    - location: Allahabad
+  - slot_was_set:
+    - location: Allahabad
+  - action: action_check_city
+  - slot_was_set:
+    - check_loc: true
+  - action: utter_ask_budget
+  - intent: restaurant_search
+    entities:
+    - price: 300-700
+  - slot_was_set:
+    - price: 300-700
+  - action: action_search_restaurants
+  - action: utter_ask_email
+  - intent: affirm
+    entities:
+    - email: abc@xyz.com
+  - slot_was_set:
+    - email: abc@xyz.com
+  - action: action_send_mail
+  - intent: goodbye
+  - action: utter_goodbye
+- story: interactive_story_1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: restaurant_search
+  - action: utter_ask_location
+  - intent: restaurant_search
+    entities:
+    - location: Mmubaim
+  - slot_was_set:
+    - location: Mmubaim
+  - action: action_check_city
+  - slot_was_set:
+    - check_loc: false
+  - action: utter_not_working_in_location
+  - intent: restaurant_search
+    entities:
+    - location: Mumbai
+  - slot_was_set:
+    - location: Mumbai
+  - action: action_check_city
+  - slot_was_set:
+    - check_loc: true
+  - action: utter_ask_cuisine
+  - intent: restaurant_search
+    entities:
+    - cuisine: notrh indian
+  - slot_was_set:
+    - cuisine: notrh indian
+  - action: utter_ask_budget
+  - intent: restaurant_search
+    entities:
+    - price: 300-700
+  - slot_was_set:
+    - price: 300-700
+  - action: action_search_restaurants
+  - action: utter_ask_email
+  - intent: affirm
+  - action: utter_ask_email_after_confirm
+  - intent: affirm
+    entities:
+    - email: adriangonsalves2197@gmail.com
+  - slot_was_set:
+    - email: adriangonsalves2197@gmail.com
+  - action: action_send_mail
+
+- story: interactive_story_2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: restaurant_search
+    entities:
+    - location: ajmer
+  - slot_was_set:
+    - location: ajmer
+  - action: action_check_city
+  - slot_was_set:
+    - check_loc: true
+  - action: utter_ask_cuisine
+  - intent: restaurant_search
+    entities:
+    - cuisine: south indian
+  - slot_was_set:
+    - cuisine: south indian
+  - action: utter_ask_budget
+  - intent: restaurant_search
+    entities:
+    - price: 300-700
+  - slot_was_set:
+    - price: 300-700
+  - action: action_search_restaurants
+  - action: utter_ask_email
+  - intent: deny
+  - action: utter_goodbye
